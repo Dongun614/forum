@@ -14,6 +14,7 @@ export default async function Edit(props) {
             <form action="/api/post/edit" method="POST">
                 <input name="title" defaultValue={result.title} />
                 <input name="content" defaultValue={result.content} />
+                <input  style={{ display : 'none' }} name="_id" defaultValue={result._id.toString()}/>
                 <button type="submit">전송</button>
             </form>
         </div>
