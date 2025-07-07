@@ -13,14 +13,22 @@ export default function ListItem(props) {
                         <div className="list-item" key={i}>
                             <Link href={`detail/${props.result[i]._id}`}>{props.result[i].title}</Link>
                             <Link href={`/edit/${props.result[i]._id}`}>✏️</Link>
-                            <button onClick={() => {
+                            <span onClick={(e) => {
                                 console.log(props.result[i]._id)
                                 fetch('/api/post/delete', { method : 'DELETE', body : props.result[i]._id})
                                     .then((r)=> r.json())
                                     .then((result)=>{
-                                        //성공시 실행할 코드
+                                        e.target.parentElement.style.opacity = 0;
+                                        setTimeout(()=>{
+                                            e.target.parentElement.style.display = 'none';
+                                        }, 1000)
                                     })
-                            }}>🗑️</button>
+                                
+
+                                //fetch('api/test?name=kim&age=20');
+
+                                //fetch('/api/abc/kim')
+                            }}>🗑️</span>
                             <p>{props.result[i].content}</p>
                         </div>
                     )
