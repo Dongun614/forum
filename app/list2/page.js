@@ -3,6 +3,8 @@ import Link from "next/link";
 import DetailLink from "./DetailLink";
 import ListItem from "./ListItem";
 
+export const revalidate = 20;
+
 export const dynamic = 'force-dynamic'
 
 export default async function List() {
